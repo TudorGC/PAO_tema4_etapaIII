@@ -52,6 +52,16 @@ public class ClientService implements IClientService{
         clientRepository.adaugaClient(c);
     }
 
+    public void creeazaClient(String nume, int venit, double sumaInitiala, double dobanda, int durata){
+
+
+        Client c = new Client(nume, venit);
+        c.setCredit(sumaInitiala, dobanda, durata);
+        //c.credit = new Credit()
+
+        clientRepository.adaugaClient(c);
+    }
+
 
 
     @Override
@@ -107,6 +117,15 @@ public class ClientService implements IClientService{
     public void stergeClient(){
         Client c = clientRepository.cautareClient();
         clientRepository.eliminaClient(c);
+    }
+
+    public void stergeClient(Client c){
+
+        clientRepository.eliminaClient(c);
+    }
+
+    public List<Client> getClienti(){
+        return clientRepository.getClienti();
     }
 
     @Override

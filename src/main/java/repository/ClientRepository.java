@@ -26,7 +26,7 @@ public class ClientRepository implements IClientRepository {
                     Connection con = DriverManager.getConnection(url, username, password);
                     PreparedStatement s = con.prepareStatement(sql);
             ) {
-                //s.setInt(1, c.getCust_ID());
+
                 s.setString(1, c.getNume());
                 s.setInt(2, c.getVenit());
                 s.setDouble(3, c.getSumaInit());
@@ -58,15 +58,9 @@ public class ClientRepository implements IClientRepository {
         }
     }
 
+    public String cautareAll(String s){
 
-
-
-
-    /*@Override
-    public Client cautareClient(){
-        System.out.println("Client - Cautare generala \nIntroduceti detalii (nume / venit / id partial sau complet): ");
-        Scanner scan = new Scanner(System.in);
-        String deCautat = scan.nextLine();
+        String found = "negasit";
         Boolean gasit = false;
 
         while(gasit == false){
@@ -74,25 +68,16 @@ public class ClientRepository implements IClientRepository {
             for(int i=0; i < clienti.size(); i++) {
                 gasit = false;
 
-                if(clienti.get(i).getNume().toLowerCase().contains(deCautat.toLowerCase())) {
-                    System.out.println("Client gasit. \n Detalii " + clienti.get(i).toString());
+                if(clienti.get(i).getNume().toLowerCase().contains(s.toLowerCase())) {
+                    found = "Client gasit. \n Detalii " + clienti.get(i).toString();
                     gasit = true;
-                    Client found = clienti.get(i);
-
                 }
-
             }
         }
-
-
-
-
-        if(gasit == false)
-            System.out.println("Nu s-a gasit client cu detaliile specificate");
-
         return found;
+    }
 
-    }*/
+
 
     @Override
     public Client cautareClient(){
@@ -106,11 +91,12 @@ public class ClientRepository implements IClientRepository {
         String deCautat = scan.nextLine();
         return clienti
                 .stream()
-                .filter(c -> c.getNume().equals(deCautat))
+                .filter(c -> (c.getNume()).toLowerCase().equals((deCautat).toLowerCase()))
                 .findFirst()
                 .map(c -> c)
                 .orElseThrow(ClientNotFoundException::new);
     }
+
 
     @Override
     public List<Client> getClienti(){

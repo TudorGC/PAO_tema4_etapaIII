@@ -102,7 +102,7 @@ public class Credit {
     public String toString() {
         DecimalFormat df = new DecimalFormat("####0.00");
         return "Credit : " +
-                ", suma Initiala = " + sumaInitiala +
+                "Suma Initiala = " + sumaInitiala +
                 ", dobanda = " + dobanda +
                 ", rata = " + df.format(rata.getSuma()) +
                 ", suma de plata = " + df.format(sumaDePlata) +

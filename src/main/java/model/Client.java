@@ -23,22 +23,22 @@ public class Client implements Comparable<Client>{
 
     }
 
-    public Client(int id, String nume, int venit, double sumaInitiala, double procent, int durata) {
+    public Client(int id, String nume, int venit, double sumaInitiala, double dobanda, int durata) {
 
 
 
         this.cust_ID = id;
         this.nume = nume;
         this.venit = venit;
-        this.credit = new Credit(sumaInitiala, procent, durata);
+        this.credit = new Credit(sumaInitiala, dobanda, durata);
 
 
 
     }
 
 
-    public void setCredit(double sumaInitiala, double procent, int durata){
-        this.credit = new Credit(sumaInitiala, procent, durata);
+    public void setCredit(double sumaInitiala, double dobanda, int durata){
+        this.credit = new Credit(sumaInitiala, dobanda, durata);
     }
 
     public int getCust_ID() {
@@ -100,7 +100,7 @@ public class Client implements Comparable<Client>{
                 "ID = " + cust_ID +
                 ", nume: " + nume +
                 ", venit = " + venit +
-                ",\n" + credit.toString()+
+                "\n. " + credit.toString()+
                 " .\n\n";
     }
 

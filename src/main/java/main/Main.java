@@ -3,36 +3,41 @@
 
 package main;
 
+import GUI.ClientFrame;
 import repository.ClientRepository;
 import service.ClientService;
 import model.Client;
 
 import java.util.Scanner;
 
+
 public class Main {
 
-    public static void displayOP(){
-        System.out.println("------------------------------");
-        System.out.println ( "1. Adaugare client" ) ;
-        System.out.println ( "2. Cautare client" );
-        System.out.println ( "3. Eliminare client" ) ;
-        System.out.println ( "4. Afisare clienti (neformatat, to do)" ) ;
-        System.out.println ( "5. Consultare sold per client " ) ;
-        System.out.println ( "6. Istoric tranzactii per client" ) ;
-        System.out.println ( "7. Cautare tranzactie per client ");
-        System.out.println ( "8. Sortare dupa suma de plata ");
-        System.out.println ( "9. Operatii disponibile ");
-        System.out.println ( "0. Iesire");
-        System.out.println("------------------------------");
-    }
+//    public static void displayOP(){
+//        System.out.println("------------------------------");
+//        System.out.println ( "1. Adaugare client" ) ;
+//        System.out.println ( "2. Cautare client" );
+//        System.out.println ( "3. Eliminare client" ) ;
+//        System.out.println ( "4. Afisare clienti " ) ;
+//        System.out.println ( "5. Consultare sold per client " ) ;
+//        System.out.println ( "6. Istoric tranzactii per client (nefunctional momentan)" ) ;
+//        System.out.println ( "7. Cautare tranzactie per client (nefunctional momentan)");
+//        System.out.println ( "8. Sortare dupa suma de plata ");
+//        System.out.println ( "9. Operatii disponibile ");
+//        System.out.println ( "0. Iesire");
+//        System.out.println("------------------------------");
+//    }
 
 
 
     public static void main(String[] args) {
 
+        //GUI has only CREATE / DELETE options
+
+
+
         ClientRepository rep = new ClientRepository();
 
-        ClientService admin = new ClientService(rep);
 
         //cativa clienti si activitate
 
@@ -61,85 +66,92 @@ public class Main {
         rep.adaugaClient(c2);
         rep.adaugaClient(c3);
 
-        Scanner input = new Scanner(System.in);
-
-
-
-        int Choice;
-
-        {
-
-
-
-            int exit = 1;
-            do{
-                displayOP();
-                Choice = input.nextInt();
-
-
-            switch (Choice)
-            {
-                case 1:
-                    admin.creeazaClient();
-
-                    /*System.out.println("Tip credit: ");
-                    Scanner in = new Scanner(System.in);
-                    String tip = in.next();
-
-                    switch (tip){
-                        case "consum":
-
-                    }*/
-
-
-                    break;
-
-
-                case 2:
-                    System.out.println(rep.cautareClient());
-                    break;
-
-                case 3:
-                    admin.stergeClient();
-                    break;
-
-                case 4:
-                    rep.afisareClienti();
-                    break;
-
-                case 5:
-                    System.out.println(admin.interogareSold());
-                    break;
-
-                case 6:
-                    System.out.println(admin.istoricTranzactii());
-                    break;
-
-                case 7:
-                    admin.cautareTranzactie();
-                    break;
-
-                case 8:
-                    //System.out.println("to do");
-                    rep.sortareDupaSumaDePlata();
-                    break;
-
-                case 9:
-                    displayOP();
-                    break;
-
-
-                case 0:
-                    exit = 0;
-                    break;
+        ClientFrame cf = new ClientFrame();
 
 
 
 
 
-            }
-            } while(exit !=0);
-        }
+//
+//        Scanner input = new Scanner(System.in);
+//
+//
+//
+//        int Choice;
+//
+//        {
+//
+//
+//
+//            int exit = 1;
+//            do{
+//                displayOP();
+//                Choice = input.nextInt();
+//
+//
+//            switch (Choice)
+//            {
+//                case 1:
+//                    admin.creeazaClient();
+//
+//                    /*System.out.println("Tip credit: ");
+//                    Scanner in = new Scanner(System.in);
+//                    String tip = in.next();
+//
+//                    switch (tip){
+//                        case "consum":
+//
+//                    }*/
+//
+//
+//                    break;
+//
+//
+//                case 2:
+//                    System.out.println(rep.cautareClient());
+//                    break;
+//
+//                case 3:
+//                    admin.stergeClient();
+//                    break;
+//
+//                case 4:
+//                    rep.afisareClienti();
+//                    break;
+//
+//                case 5:
+//                    System.out.println(admin.interogareSold());
+//                    break;
+//
+//                case 6:
+//                    System.out.println(admin.istoricTranzactii());
+//                    break;
+//
+//                case 7:
+//                    admin.cautareTranzactie();
+//                    break;
+//
+//                case 8:
+//                    //System.out.println("to do");
+//                    rep.sortareDupaSumaDePlata();
+//                    break;
+//
+//                case 9:
+//                    displayOP();
+//                    break;
+//
+//
+//                case 0:
+//                    exit = 0;
+//                    break;
+//
+//
+//
+//
+//
+//            }
+//            } while(exit !=0);
+//        }
 
 
 
